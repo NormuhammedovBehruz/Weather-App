@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    background-image: url("./weather1.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 40px;
+    width: 600px;
+    height: 400px;
+    color: #fff;
+    box-sizing: content-box;
+    box-shadow: 0 0 10px 5px #fff;
+}
+
+.container h1 {
+    text-align: center;
+    cursor: default;
+}
+
+.search-form button {
+    font-size: 18px;
+    border-radius: 10px;
+    border: 0;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.search {
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.city-name {
+    font-size: 2.5rem;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    cursor: default;
+}
+
+.current-degree {
+    font-size: 2.2rem;
+    margin: 0;
+    margin-bottom: 16px;
+    cursor: default;
+}
+
+.current-weather {
+    font-size: 1.2rem;
+    margin: 0;
+    margin-bottom: 16px;
+    cursor: default;
+}
+
+.min {
+    font-size: 1rem;
+    margin-right: 5px;
+    cursor: default;
+}
+
+.max {
+    font-size: 1rem;
+    cursor: default;
+}
