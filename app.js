@@ -16,18 +16,26 @@ searchForm.addEventListener('submit', async (e) => {
     e.preventDefault()
     const nameCity = search.value
     owerlay.classList.remove('hidden')
-    const fetchData = await fetch(`${api.base}weather?q=${nameCity}&units=metric&appid=${api.key}`)
-    const data = await fetchData.json()
-    getWeather(data)
-    owerlay.classList.add('hidden')
-
+    try {
+        const fetchData = await fetch(`${api.base}weather?q=${nameCity}&units=metric&appid=${api.key}`)
+        if (!fetchData.ok) {
+            throw new Error(fetchData.statusText)
+        }
+        const data = await fetchData.json()
+        getWeather(data)
+        owerlay.classList.add('hidden')
+    } catch (err) {
+        cityName.textContent = err.message
+    }
+    owerlay.classList.add('hidden') 
 })
 
 function getWeather(data) {
-    cityName.textContent = `${data.name}, ${data.sys.country}`
-    currentDegree.textContent = `${Math.round(data.main.temp)}℃`
-    currentWeather.textContent = `${data.weather[0].main}`
-    min.textContent = `${Math.round(data.main.temp_min)}℃`
-    max.textContent = `${Math.round(data.main.temp_max)}℃`
+    const {name, sys, main, weather} = data
+    cityName.textContent = `${name}, ${sys.country}`
+    currentDegree.textContent = `${Math.round(main.temp)}℃`
+    currentWeather.textContent = `${weather[0].main}`
+    min.textContent = `${Math.round(main.temp_min)}℃`
+    max.textContent = `${Math.round(main.temp_max)}℃`
     search.value = ''
 }
